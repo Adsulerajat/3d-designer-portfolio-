@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* HSL Color Palette */
+  /* Background: Deep Black/Gray #0a0a0a */
+  --background: 0 0% 4%;
+  /* Foreground: White/Off-white */
+  --foreground: 0 0% 98%;
+
+  /* Primary: Neon Cyan #00f3ff */
+  --primary: 183 100% 50%;
+  --primary-foreground: 0 0% 0%;
+
+  /* Secondary: Deep Purple #bc13fe */
+  --secondary: 283 99% 54%;
+  --secondary-foreground: 0 0% 100%;
+
+  /* Muted: Dark gray for cards */
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 63.9%;
+
+  /* Accent: for hover states or special highlights */
+  --accent: 283 99% 54%;
+  --accent-foreground: 0 0% 98%;
+
+  /* Destructive */
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+
+  /* Borders */
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --ring: 183 100% 50%;
+
+  /* Radius */
+  --radius: 0.5rem;
+
+  /* Fonts */
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground;
+    font-family: var(--font-body);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-wide;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.3);
+  }
+  
+  .text-glow-purple {
+    text-shadow: 0 0 10px rgba(188, 19, 254, 0.5), 0 0 20px rgba(188, 19, 254, 0.3);
+  }
+  
+  .box-glow {
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+  }
+
+  .glass-panel {
+    @apply bg-background/80 backdrop-blur-md border border-white/5;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
