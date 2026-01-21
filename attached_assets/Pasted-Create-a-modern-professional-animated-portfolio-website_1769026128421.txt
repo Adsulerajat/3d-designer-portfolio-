@@ -1,0 +1,163 @@
+Create a modern, professional, animated portfolio website for my 3D Design & Robotics work, using HTML, CSS, and JavaScript only (no frameworks).
+
+🎯 Goal
+
+This website is for recruiters and companies so it must look clean, premium, futuristic, and professional, similar in quality and style to:
+
+https://anvaymayekar.vercel.app/
+
+https://adsulerajat.github.io/From-Code-to-Circuits-My-Portfolio/
+
+🧠 Personal Branding
+
+Startup Name: VoxelVibe
+
+Startup Website: https://voxelvibe.shop
+ (add button link)
+
+Portfolio Repo Reference: https://github.com/Adsulerajat/From-Code-to-Circuits-My-Portfolio
+
+Hero Tagline (create something creative & impactful like):
+
+“Designing Motion, Engineering Intelligence — Turning Ideas into Real-World Machines.”
+
+Intro Section Text (polished & professional):
+
+I am a passionate 3D designer focused on robotics and real-world mechanical systems.
+
+I love learning new things and never leave work incomplete.
+
+Strong at time management, multitasking, and problem solving.
+
+Excited to solve real-life engineering challenges through design.
+
+🛠 Tools Section
+
+Show tools as cards with icons and subtle hover animation:
+
+AutoCAD
+
+Fusion 360
+
+Learning: SolidWorks
+
+Learning: Blender
+
+📂 Projects Section (IMPORTANT)
+
+Each project must:
+
+Be in its own animated card
+
+Auto-rotate images every 5 seconds
+
+Smooth fade/slide animation
+
+Responsive grid layout
+
+1️⃣ Pick & Place Robotic Hand
+
+Description:
+A robotic hand designed for pick-and-place operations with mechanical precision.
+
+Images (loop every 5s):
+
+https://i.ibb.co/HTPRR1p1/Screenshot-2026-01-22-004523.png
+
+https://i.ibb.co/4ZxckTYQ/Screenshot-2026-01-22-004531.png
+
+2️⃣ SIRA – Spider Inspired Robotic Architecture
+
+Selected at SIH (College Level) and Avishkar
+
+A. Hexapod
+
+Images:
+
+https://i.ibb.co/0ySB3Ch0/Screenshot-2026-01-22-004128.png
+
+https://i.ibb.co/q3pfWgxL/Screenshot-2026-01-22-004116.png
+
+https://i.ibb.co/gKvG6hX/Screenshot-2026-01-22-004225.png
+
+B. Quadruped
+
+Images:
+
+https://i.ibb.co/VWLd8ndf/Screenshot-2026-01-22-004338.png
+
+https://i.ibb.co/v6K104Xd/Screenshot-2026-01-22-004344.png
+
+C. Common Mechanical Parts
+
+Legs
+
+https://i.ibb.co/HJp9mHG/Screenshot-2026-01-22-004042.png
+
+https://i.ibb.co/bjkGnkn2/Screenshot-2026-01-22-004033.png
+
+Knee
+
+https://i.ibb.co/My62nFys/Screenshot-2026-01-22-003911.png
+
+https://i.ibb.co/JWWK0SPg/Screenshot-2026-01-22-003926.png
+
+Thigh
+
+https://i.ibb.co/nNXZW7Yk/Screenshot-2026-01-22-003944.png
+
+https://i.ibb.co/6R2k8rVZ/Screenshot-2026-01-22-003952.png
+
+Hips
+
+https://i.ibb.co/x8jVrnG9/Screenshot-2026-01-22-003808.png
+
+https://i.ibb.co/jvJFgcVg/Screenshot-2026-01-22-003814.png
+
+🖨 Real-World Implementation
+
+After 3D Printing:
+
+Image: https://i.ibb.co/yB4xJJXp/Screenshot-2026-01-22-012140.png
+
+Videos (embed YouTube Shorts):
+
+https://youtube.com/shorts/DD1lmYOdKHY
+
+https://youtube.com/shorts/ZJIcioFQKCc
+
+📞 Contact Section
+
+Keep EXACTLY the same Contact Us section from:
+
+https://adsulerajat.github.io/From-Code-to-Circuits-My-Portfolio/
+
+🎨 Design Requirements
+
+Dark theme with accent color (cyan / purple / neon)
+
+Smooth scroll
+
+Section reveal animations
+
+Image slider using pure JavaScript
+
+Hover effects on cards
+
+Mobile responsive
+
+Professional typography
+
+📁 Output Format
+
+index.html
+
+style.css
+
+script.js
+
+Clean folder structure
+
+Well-commented code
+
+Build this as a job-ready 3D design portfolio website that looks modern, animated, and recruiter-friendly.
