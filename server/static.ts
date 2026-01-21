@@ -12,17 +12,12 @@ export function serveStatic(app: Express) {
   
   // Serve the static files from the public directory
   if (fs.existsSync(publicPath)) {
+    // index: true is default for express.static
     app.use(express.static(publicPath));
   }
 
-  // Fallback to serving the dist folder if public files aren't found or as a secondary option
-  const distPath = path.resolve(__dirname, "..", "client", "dist");
-  if (fs.existsSync(distPath)) {
-    app.use(express.static(distPath));
-  }
-
   // Catch-all route to serve the static index.html
-  app.use("*", (req, res, next) => {
+  app.get("*", (req, res, next) => {
     // Only serve index.html for non-API routes
     if (req.path.startsWith("/api")) {
       return next();
@@ -32,13 +27,7 @@ export function serveStatic(app: Express) {
     if (fs.existsSync(indexPath)) {
       res.sendFile(indexPath);
     } else {
-      // Last resort fallback
-      const distIndexPath = path.resolve(distPath, "index.html");
-      if (fs.existsSync(distIndexPath)) {
-        res.sendFile(distIndexPath);
-      } else {
-        res.status(404).send("Not Found");
-      }
+      res.status(404).send("Not Found");
     }
   });
 }

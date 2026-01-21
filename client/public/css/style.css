@@ -44,12 +44,6 @@ body {
     100% { transform: translateY(0px) rotate(0deg); }
 }
 
-@keyframes pulse-glow {
-    0% { box-shadow: 0 0 10px rgba(0, 243, 255, 0.2); }
-    50% { box-shadow: 0 0 30px rgba(0, 243, 255, 0.4); }
-    100% { box-shadow: 0 0 10px rgba(0, 243, 255, 0.2); }
-}
-
 /* Nav */
 .glass-nav {
     position: fixed;
@@ -120,12 +114,6 @@ body {
     padding: 0 10%;
     background: radial-gradient(circle at center, #111 0%, #0a0a0a 100%);
     position: relative;
-    overflow: hidden;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
 }
 
 .glow-text {
@@ -172,7 +160,7 @@ body {
 }
 
 .btn:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.5);
 }
 
@@ -221,22 +209,6 @@ section {
     margin: 0 auto;
     text-align: center;
     animation: float 8s ease-in-out infinite;
-    position: relative;
-}
-
-.startup-card::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    z-index: -1;
-    filter: blur(20px);
-    opacity: 0.1;
-    transition: 0.5s;
-}
-
-.startup-card:hover::before {
-    opacity: 0.2;
 }
 
 /* Portfolio */
@@ -244,14 +216,6 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2.5rem;
-    margin-bottom: 6rem;
-}
-
-.project-card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .project-card h3 {
@@ -259,17 +223,6 @@ section {
     margin-bottom: 1.2rem;
     color: var(--primary);
     font-size: 1.4rem;
-}
-
-.video-showcase {
-    margin-top: 6rem;
-    text-align: center;
-}
-
-.video-wrapper {
-    max-width: 950px;
-    margin: 2.5rem auto;
-    padding: 12px;
 }
 
 .video-wrapper iframe {
@@ -295,17 +248,6 @@ input, textarea {
     color: white;
     font-family: var(--font-body);
     outline: none;
-    transition: 0.4s;
-    border-radius: 2px;
-}
-
-input:focus, textarea:focus {
-    border-color: var(--primary);
-    background: rgba(255,255,255,0.07);
-}
-
-.full-width {
-    width: 100%;
 }
 
 .social-links {
@@ -319,24 +261,9 @@ input:focus, textarea:focus {
     color: var(--primary);
     text-decoration: none;
     font-weight: 700;
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    transition: 0.3s;
-    letter-spacing: 1px;
-}
-
-.social-icon:hover {
-    color: var(--secondary);
-    text-shadow: 0 0 15px var(--secondary);
-    transform: scale(1.1);
-}
-
-@media (max-width: 1024px) {
-    section { padding: 100px 5%; }
 }
 
 @media (max-width: 768px) {
     .nav-links { display: none; }
     .glow-text { font-size: 2.2rem; }
-    .logo { font-size: 1.3rem; }
 }
