@@ -79,7 +79,27 @@ export default function ProjectDetails() {
           </section>
 
           {/* Video Section */}
-          {project.videoUrl && project.category !== "Portfolio" && (
+          {project.videoUrls && project.videoUrls.length > 0 && project.category !== "Portfolio" && (
+            <section className="space-y-8">
+              <h2 className="text-2xl font-display font-bold mb-6 text-white border-l-4 border-secondary pl-4">Demo Videos</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {project.videoUrls.map((url, idx) => (
+                  <div key={idx} className="aspect-video w-full rounded-xl overflow-hidden border border-white/10 bg-black shadow-lg shadow-secondary/5">
+                    <iframe 
+                      src={url} 
+                      title={`Project Video ${idx + 1}`}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Fallback for single videoUrl if videoUrls is missing */}
+          {!project.videoUrls && project.videoUrl && project.category !== "Portfolio" && (
             <section>
               <h2 className="text-2xl font-display font-bold mb-6 text-white border-l-4 border-secondary pl-4">Demo Video</h2>
               <div className="aspect-video w-full rounded-xl overflow-hidden border border-white/10 bg-black">

@@ -8,7 +8,8 @@ export const projects = pgTable("projects", {
   description: text("description").notNull(),
   category: text("category").notNull(), // 'Robotics', '3D Design', etc.
   images: text("images").array().notNull(), // Array of image URLs
-  videoUrl: text("video_url"), // Optional video link
+  videoUrl: text("video_url"), // Optional video link (deprecated)
+  videoUrls: text("video_urls").array(), // Support for multiple videos
   repoUrl: text("repo_url"), // Added repo link
   demoUrl: text("demo_url"), // Added demo link
   tags: text("tags").array(),
