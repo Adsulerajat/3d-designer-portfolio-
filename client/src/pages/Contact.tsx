@@ -63,7 +63,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold font-display mb-1">Email</h3>
-                  <p className="text-muted-foreground">contact@example.com</p>
+                  <p className="text-muted-foreground">rajat.adsule24@sakec.ac.in</p>
                 </div>
               </div>
 
@@ -73,7 +73,6 @@ export default function Contact() {
                   {[
                     { icon: Github, href: "https://github.com" },
                     { icon: Linkedin, href: "https://linkedin.com" },
-                    { icon: Instagram, href: "https://instagram.com" },
                   ].map((social, i) => (
                     <a 
                       key={i} 
