@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ArrowRight, Box, Play, Pause } from "lucide-react";
+import { ArrowRight, Box, Play, Github, ExternalLink } from "lucide-react";
 import type { Project } from "@shared/schema";
 import { Link } from "wouter";
 
@@ -98,18 +98,42 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           ))}
         </div>
 
-        <div className="flex items-center justify-between mt-auto">
+        <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
             <Link href={`/projects/${project.id}`}>
               <a className="inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-primary transition-colors">
                 VIEW DETAILS <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
             </Link>
             
-            {project.videoUrl && (
-               <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
-                 <Play className="w-4 h-4 fill-current" />
-               </div>
-            )}
+            <div className="flex gap-3">
+              {project.repoUrl && (
+                <a 
+                  href={project.repoUrl} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="text-muted-foreground hover:text-white transition-colors"
+                  title="View Source"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+              )}
+              {project.demoUrl && (
+                <a 
+                  href={project.demoUrl} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  title="Live Demo"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                </a>
+              )}
+              {project.videoUrl && (
+                 <div className="w-5 h-5 flex items-center justify-center text-secondary">
+                   <Play className="w-4 h-4 fill-current" />
+                 </div>
+              )}
+            </div>
         </div>
       </div>
     </motion.div>

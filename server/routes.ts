@@ -114,5 +114,19 @@ async function seedDatabase() {
       videoUrl: "https://www.youtube.com/embed/DD1lmYOdKHY",
       tags: ["3D Printing", "Prototyping", "Hardware"]
     });
+
+    // 6. Portfolio Reference
+    await storage.createProject({
+      title: "Previous Portfolio",
+      description: "My previous 'From Code to Circuits' portfolio showcasing circuits and design work.",
+      category: "Portfolio",
+      images: [
+        "https://adsulerajat.github.io/From-Code-to-Circuits-My-Portfolio/assets/img/portfolio/circuits.jpg"
+      ],
+      videoUrl: "https://www.youtube.com/embed/ZJIcioFQKCc",
+      repoUrl: "https://github.com/Adsulerajat/From-Code-to-Circuits-My-Portfolio",
+      demoUrl: "https://adsulerajat.github.io/From-Code-to-Circuits-My-Portfolio/",
+      tags: ["Web", "Portfolio", "Showcase"]
+    });
   }
 }

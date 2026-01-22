@@ -9,6 +9,8 @@ export const projects = pgTable("projects", {
   category: text("category").notNull(), // 'Robotics', '3D Design', etc.
   images: text("images").array().notNull(), // Array of image URLs
   videoUrl: text("video_url"), // Optional video link
+  repoUrl: text("repo_url"), // Added repo link
+  demoUrl: text("demo_url"), // Added demo link
   tags: text("tags").array(),
 });
 
