@@ -22,7 +22,7 @@ export function Navbar() {
             <a className="flex items-center gap-2 group cursor-pointer">
               <Cpu className="w-8 h-8 text-primary group-hover:rotate-180 transition-transform duration-500" />
               <span className="text-xl font-bold font-display tracking-widest text-foreground group-hover:text-glow transition-all">
-                VOXEL<span className="text-primary">VIBE</span>
+                DESIGNING <span className="text-primary">FUTURE</span>
               </span>
             </a>
           </Link>
@@ -44,14 +44,6 @@ export function Navbar() {
                 </a>
               </Link>
             ))}
-            <a 
-              href="https://voxelvibe.shop" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="px-4 py-2 text-sm font-bold bg-primary text-black rounded hover:bg-white hover:text-primary transition-colors duration-300"
-            >
-              SHOP
-            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -89,14 +81,6 @@ export function Navbar() {
                 </a>
               </Link>
             ))}
-             <a 
-              href="https://voxelvibe.shop" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block px-3 py-2 rounded-md text-base font-bold text-primary hover:bg-primary/10"
-            >
-              VISIT SHOP
-            </a>
           </div>
         </motion.div>
       )}

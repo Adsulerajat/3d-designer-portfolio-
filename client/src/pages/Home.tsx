@@ -58,7 +58,7 @@ export default function Home() {
             className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-sm"
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm font-mono text-primary tracking-widest uppercase">VoxelVibe Design Systems</span>
+            <span className="text-sm font-mono text-primary tracking-widest uppercase">Design Systems</span>
           </motion.div>
 
           <motion.h1
@@ -67,8 +67,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight mb-8"
           >
-            Designing <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/50 text-glow">Motion</span>,<br />
-            Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-secondary/50 text-glow-purple">Intelligence</span>
+            Designing <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/50 text-glow">Future</span>
           </motion.h1>
 
           <motion.p
