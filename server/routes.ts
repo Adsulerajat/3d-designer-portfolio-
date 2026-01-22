@@ -104,9 +104,9 @@ async function seedDatabase() {
     });
     
     // 5. Real World Implementation
-     await storage.createProject({
+    await storage.createProject({
       title: "Real-World Implementation",
-      description: "Physical prototypes and 3D printed models in action.",
+      description: "Physical prototypes and 3D printed models in action. Demos: https://youtube.com/shorts/DD1lmYOdKHY and https://youtube.com/shorts/ZJIcioFQKCc",
       category: "Prototyping",
       images: [
         "https://i.ibb.co/yB4xJJXp/Screenshot-2026-01-22-012140.png"
@@ -117,13 +117,13 @@ async function seedDatabase() {
 
     // 6. Portfolio Reference
     await storage.createProject({
-      title: "Previous Portfolio",
-      description: "My previous 'From Code to Circuits' portfolio showcasing circuits and design work.",
+      title: "From Code to Circuits",
+      description: "My previous 'From Code to Circuits' portfolio showcasing circuits and design work. Project demo: https://adsulerajat.github.io/From-Code-to-Circuits-My-Portfolio/",
       category: "Portfolio",
       images: [
-        "https://adsulerajat.github.io/From-Code-to-Circuits-My-Portfolio/assets/img/portfolio/circuits.jpg"
+        "https://i.ibb.co/cSryHgLS/Screenshot-2026-01-22-114042.png"
       ],
-      videoUrl: "https://www.youtube.com/embed/ZJIcioFQKCc",
+      videoUrl: null,
       repoUrl: "https://github.com/Adsulerajat/From-Code-to-Circuits-My-Portfolio",
       demoUrl: "https://adsulerajat.github.io/From-Code-to-Circuits-My-Portfolio/",
       tags: ["Web", "Portfolio", "Showcase"]

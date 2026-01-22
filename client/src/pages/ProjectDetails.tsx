@@ -2,7 +2,7 @@ import { useRoute } from "wouter";
 import { useProject } from "@/hooks/use-projects";
 import { Navbar } from "@/components/Navbar";
 import { motion } from "framer-motion";
-import { ArrowLeft, Play, Calendar, Tag } from "lucide-react";
+import { ArrowLeft, Play, Calendar, Tag, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
 
 export default function ProjectDetails() {
@@ -79,7 +79,7 @@ export default function ProjectDetails() {
           </section>
 
           {/* Video Section */}
-          {project.videoUrl && (
+          {project.videoUrl && project.category !== "Portfolio" && (
             <section>
               <h2 className="text-2xl font-display font-bold mb-6 text-white border-l-4 border-secondary pl-4">Demo Video</h2>
               <div className="aspect-video w-full rounded-xl overflow-hidden border border-white/10 bg-black">
@@ -91,6 +91,24 @@ export default function ProjectDetails() {
                   allowFullScreen
                 />
               </div>
+            </section>
+          )}
+
+          {/* Portfolio Link Section (if video is hidden) */}
+          {project.category === "Portfolio" && project.demoUrl && (
+            <section className="p-8 rounded-2xl bg-primary/5 border border-primary/20">
+              <h2 className="text-2xl font-display font-bold mb-4 text-white">Project Link</h2>
+              <p className="text-muted-foreground mb-6">
+                Experience the full interactive portfolio and see the robotic architectures in action.
+              </p>
+              <a 
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-black font-bold rounded-lg hover:shadow-[0_0_20px_rgba(0,243,255,0.4)] transition-all"
+              >
+                Visit Live Portfolio <ExternalLink className="w-4 h-4" />
+              </a>
             </section>
           )}
 
