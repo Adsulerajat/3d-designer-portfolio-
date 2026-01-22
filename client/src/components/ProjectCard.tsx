@@ -33,9 +33,12 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group relative bg-muted/40 rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 transition-colors duration-500"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ 
+        y: -10, 
+        boxShadow: "0 20px 40px -20px rgba(0, 243, 255, 0.3)",
+        borderColor: "rgba(0, 243, 255, 0.5)"
+      }}
+      className="group relative bg-muted/40 rounded-xl overflow-hidden border border-white/5 transition-all duration-500 flex flex-col h-full"
     >
       {/* Image Slider Area */}
       <div className="relative aspect-[16/9] overflow-hidden bg-black/50">
