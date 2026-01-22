@@ -6,8 +6,8 @@ import { Link } from "wouter";
 import { ArrowRight, Cpu, Layers, PenTool, Move, Settings, Zap } from "lucide-react";
 
 const tools = [
-  { name: "AutoCAD", icon: PenTool, level: "Advanced" },
-  { name: "Fusion 360", icon: Layers, level: "Advanced" },
+  { name: "AutoCAD", icon: PenTool },
+  { name: "Fusion 360", icon: Layers },
   { name: "SolidWorks", icon: Settings, level: "Learning" },
   { name: "Blender", icon: Box, level: "Learning" },
 ];
@@ -130,7 +130,9 @@ export default function Home() {
               >
                 <tool.icon className="w-10 h-10 mx-auto mb-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 <h3 className="font-bold text-lg mb-1">{tool.name}</h3>
-                <span className="text-xs text-primary/70 uppercase tracking-wider">{tool.level}</span>
+                {tool.level && (
+                  <span className="text-xs text-primary/70 uppercase tracking-wider">{tool.level}</span>
+                )}
               </motion.div>
             ))}
           </div>
