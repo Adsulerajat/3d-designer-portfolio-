@@ -47,9 +47,10 @@ export async function registerRoutes(
 
 async function seedDatabase() {
   const existingProjects = await storage.getProjects();
-  if (existingProjects.length === 0) {
-    // 1. Pick & Place Robotic Hand
-    await storage.createProject({
+  const existingTitles = new Set(existingProjects.map(p => p.title));
+
+  const allProjects = [
+    {
       title: "Pick & Place Robotic Hand",
       description: "A robotic hand designed for pick-and-place operations with mechanical precision.",
       category: "Robotics",
@@ -58,10 +59,8 @@ async function seedDatabase() {
         "https://i.ibb.co/4ZxckTYQ/Screenshot-2026-01-22-004531.png"
       ],
       tags: ["Robotics", "Mechanical Design", "Automation"]
-    });
-
-    // 2. SIRA - Hexapod
-    await storage.createProject({
+    },
+    {
       title: "SIRA - Hexapod",
       description: "Spider Inspired Robotic Architecture - Hexapod configuration. Selected at SIH and Avishkar.",
       category: "Robotics",
@@ -71,10 +70,8 @@ async function seedDatabase() {
         "https://i.ibb.co/gKvG6hX/Screenshot-2026-01-22-004225.png"
       ],
       tags: ["Hexapod", "Biomimicry", "Robotics"]
-    });
-
-    // 3. SIRA - Quadruped
-    await storage.createProject({
+    },
+    {
       title: "SIRA - Quadruped",
       description: "Spider Inspired Robotic Architecture - Quadruped configuration.",
       category: "Robotics",
@@ -83,10 +80,8 @@ async function seedDatabase() {
         "https://i.ibb.co/v6K104Xd/Screenshot-2026-01-22-004344.png"
       ],
       tags: ["Quadruped", "Robotics", "Locomotion"]
-    });
-
-     // 4. Mechanical Parts
-    await storage.createProject({
+    },
+    {
       title: "Mechanical Parts Design",
       description: "Detailed mechanical parts design including Legs, Knees, Thighs, and Hips for robotic architectures.",
       category: "3D Design",
@@ -96,15 +91,13 @@ async function seedDatabase() {
         "https://i.ibb.co/My62nFys/Screenshot-2026-01-22-003911.png",
         "https://i.ibb.co/JWWK0SPg/Screenshot-2026-01-22-003926.png",
         "https://i.ibb.co/nNXZW7Yk/Screenshot-2026-01-22-003944.png",
-         "https://i.ibb.co/6R2k8rVZ/Screenshot-2026-01-22-003952.png",
-         "https://i.ibb.co/x8jVrnG9/Screenshot-2026-01-22-003808.png",
-         "https://i.ibb.co/jvJFgcVg/Screenshot-2026-01-22-003814.png"
+        "https://i.ibb.co/6R2k8rVZ/Screenshot-2026-01-22-003952.png",
+        "https://i.ibb.co/x8jVrnG9/Screenshot-2026-01-22-003808.png",
+        "https://i.ibb.co/jvJFgcVg/Screenshot-2026-01-22-003814.png"
       ],
       tags: ["CAD", "Fusion 360", "Mechanical Engineering"]
-    });
-    
-    // 5. Real World Implementation
-    await storage.createProject({
+    },
+    {
       title: "Real-World Implementation",
       description: "Physical prototypes and 3D printed models in action. Demos: https://youtube.com/shorts/DD1lmYOdKHY and https://youtube.com/shorts/ZJIcioFQKCc",
       category: "Prototyping",
@@ -113,10 +106,8 @@ async function seedDatabase() {
       ],
       videoUrl: "https://www.youtube.com/embed/DD1lmYOdKHY",
       tags: ["3D Printing", "Prototyping", "Hardware"]
-    });
-
-    // 6. Portfolio Reference
-    await storage.createProject({
+    },
+    {
       title: "From Code to Circuits",
       description: "My previous 'From Code to Circuits' portfolio showcasing circuits and design work. Project demo: https://adsulerajat.github.io/From-Code-to-Circuits-My-Portfolio/",
       category: "Portfolio",
@@ -127,6 +118,78 @@ async function seedDatabase() {
       repoUrl: "https://github.com/Adsulerajat/From-Code-to-Circuits-My-Portfolio",
       demoUrl: "https://adsulerajat.github.io/From-Code-to-Circuits-My-Portfolio/",
       tags: ["Web", "Portfolio", "Showcase"]
-    });
+    },
+    {
+      title: "Pen Holder",
+      description: "A sleek and functional pen holder design created using CAD software. Features a modern geometric aesthetic with practical compartments for organizing writing tools.",
+      category: "3D Design",
+      images: [
+        "https://i.ibb.co/MDS0G5KY/Screenshot-2026-04-20-223608.png",
+        "https://i.ibb.co/FLHkvWcq/Screenshot-2026-04-20-223618.png",
+        "https://i.ibb.co/m5rg3XhV/Screenshot-2026-04-20-223624.png"
+      ],
+      tags: ["CAD", "3D Design", "Fusion 360", "Product Design"]
+    },
+    {
+      title: "Drone Design Type 1",
+      description: "Geodesic drone structure design type 1, engineered for structural integrity and aesthetic appeal. Built with precision using advanced CAD modelling techniques.",
+      category: "3D Design",
+      images: [
+        "https://i.ibb.co/QFjMLqjY/Screenshot-2026-04-20-221924.png",
+        "https://i.ibb.co/5gL6FCrr/Screenshot-2026-04-20-221948-Copy.png",
+        "https://i.ibb.co/JwFTxpC8/Screenshot-2026-04-20-221957-Copy.png"
+      ],
+      tags: ["CAD", "3D Design", "Architecture", "SolidWorks"]
+    },
+    {
+      title: "Drone Design Type 2",
+      description: "An alternate drone design variation exploring different geometric configurations and structural patterns for architectural applications.",
+      category: "3D Design",
+      images: [
+        "https://i.ibb.co/hRkJ6x21/Screenshot-2026-04-20-225852.png",
+        "https://i.ibb.co/LznnTBV2/Screenshot-2026-04-20-225902.png",
+        "https://i.ibb.co/zYxsRV7/Screenshot-2026-04-20-225909.png"
+      ],
+      tags: ["CAD", "3D Design", "Architecture", "Fusion 360"]
+    },
+    {
+      title: "Drone Design Type 3",
+      description: "A third drone design variant featuring unique lattice geometry and innovative structural solutions, demonstrating versatility in parametric design.",
+      category: "3D Design",
+      images: [
+        "https://i.ibb.co/JjF7r8HH/Screenshot-2026-04-20-225302.png",
+        "https://i.ibb.co/fYrFFX6j/Screenshot-2026-04-20-225321.png",
+        "https://i.ibb.co/36ncJcM/Screenshot-2026-04-20-225414.png"
+      ],
+      tags: ["CAD", "3D Design", "Architecture", "SolidWorks"]
+    },
+    {
+      title: "Robo War Car",
+      description: "A battle-ready robotic combat vehicle designed for competitive robot wars. Features a robust chassis, aggressive geometry, and strategic weapon placement for maximum battlefield effectiveness.",
+      category: "Robotics",
+      images: [
+        "https://i.ibb.co/HDpDJvXt/Screenshot-2026-04-20-224003.png"
+      ],
+      tags: ["Robotics", "Combat Robot", "CAD", "3D Design", "Mechanical Design"]
+    },
+    {
+      title: "Hard Disk Case",
+      description: "A precision-engineered protective enclosure for hard disk drives. Designed with exact tolerances for a perfect fit, featuring ventilation slots, cable management, and a durable shell optimized for both desktop and portable use.",
+      category: "3D Design",
+      images: [
+        "https://i.ibb.co/0y60Qy3X/Screenshot-2026-04-20-222115-Copy.png",
+        "https://i.ibb.co/5WHqVWZP/Screenshot-2026-04-20-222126.png",
+        "https://i.ibb.co/fGpp0gRV/Screenshot-2026-04-20-222144.png",
+        "https://i.ibb.co/QF9GLzPR/Screenshot-2026-04-20-222201.png",
+        "https://i.ibb.co/C51xB4Yn/Screenshot-2026-04-20-222208.png"
+      ],
+      tags: ["CAD", "Product Design", "Enclosure", "Fusion 360", "3D Design"]
+    }
+  ];
+
+  for (const project of allProjects) {
+    if (!existingTitles.has(project.title)) {
+      await storage.createProject(project);
+    }
   }
 }
