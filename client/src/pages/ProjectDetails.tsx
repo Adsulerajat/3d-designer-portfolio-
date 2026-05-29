@@ -5,6 +5,17 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Play, Calendar, Tag, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
 
+function toYouTubeShortsUrl(embedUrl: string) {
+  try {
+    const u = new URL(embedUrl);
+    const parts = u.pathname.split('/');
+    const id = parts[parts.length - 1];
+    return `https://youtube.com/shorts/${id}`;
+  } catch (e) {
+    return embedUrl;
+  }
+}
+
 export default function ProjectDetails() {
   const [match, params] = useRoute("/projects/:id");
   const id = params?.id ? parseInt(params.id) : 0;
@@ -85,24 +96,34 @@ export default function ProjectDetails() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {project.videoUrls.map((url, idx) => (
                   <div key={idx} className="aspect-video w-full rounded-xl overflow-hidden border border-white/10 bg-black shadow-lg shadow-secondary/5">
-                    <iframe 
-                      src={url} 
-                      title={`Project Video ${idx + 1}`}
-                      className="w-full h-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
+                    <div className="relative w-full h-full">
+                      <iframe 
+                        src={url} 
+                        title={`Project Video ${idx + 1}`}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                      <a
+                        href={toYouTubeShortsUrl(url)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute right-3 bottom-3 bg-white/10 text-white px-3 py-1 rounded backdrop-blur-sm hover:bg-white/20 transition-colors flex items-center gap-2"
+                      >
+                        Open on YouTube <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
                   </div>
                 ))}
               </div>
             </section>
           )}
 
-          {/* Fallback for single videoUrl if videoUrls is missing */}
-          {!project.videoUrls && project.videoUrl && project.category !== "Portfolio" && (
+          {/* Fallback for single videoUrl if videoUrls is missing or empty */}
+          {(!project.videoUrls || project.videoUrls.length === 0) && project.videoUrl && project.category !== "Portfolio" && (
             <section>
               <h2 className="text-2xl font-display font-bold mb-6 text-white border-l-4 border-secondary pl-4">Demo Video</h2>
-              <div className="aspect-video w-full rounded-xl overflow-hidden border border-white/10 bg-black">
+              <div className="aspect-video w-full rounded-xl overflow-hidden border border-white/10 bg-black relative">
                 <iframe 
                   src={project.videoUrl} 
                   title="Project Video"
@@ -110,6 +131,14 @@ export default function ProjectDetails() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
+                <a
+                  href={toYouTubeShortsUrl(project.videoUrl)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute right-3 bottom-3 bg-white/10 text-white px-3 py-1 rounded backdrop-blur-sm hover:bg-white/20 transition-colors flex items-center gap-2"
+                >
+                  Open on YouTube <ExternalLink className="w-4 h-4" />
+                </a>
               </div>
             </section>
           )}

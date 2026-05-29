@@ -36,5 +36,14 @@ export default defineConfig({
       strict: true,
       deny: ["**/.*"],
     },
+    // Proxy API requests to the backend when running the Vite dev server.
+    // This lets you run `npx vite` (port 5173) while the API runs on port 5000.
+    proxy: process.env.NODE_ENV !== "production" ? {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false,
+      },
+    } : undefined,
   },
 });

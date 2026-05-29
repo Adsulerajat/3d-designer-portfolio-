@@ -32,8 +32,6 @@ export async function registerRoutes(
     const projects = await storage.getProjects();
     res.json(projects);
   });
-
-  app.get(api.projects.get.path, async (req, res) => {
     const allProjects = await storage.getProjects();
     const project = allProjects.find(p => p.id === Number(req.params.id));
     if (!project) {
@@ -124,6 +122,10 @@ async function seedDatabase() {
         "https://i.ibb.co/yB4xJJXp/Screenshot-2026-01-22-012140.png"
       ],
       videoUrl: "https://www.youtube.com/embed/DD1lmYOdKHY",
+      videoUrls: [
+        "https://www.youtube.com/embed/ZJIcioFQKCc",
+        "https://www.youtube.com/embed/DD1lmYOdKHY",
+      ],
       tags: ["3D Printing", "Prototyping", "Hardware"]
     },
     {
