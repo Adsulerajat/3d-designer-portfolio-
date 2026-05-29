@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -9,7 +8,6 @@ import Home from "@/pages/Home";
 import Projects from "@/pages/Projects";
 import ProjectDetails from "@/pages/ProjectDetails";
 import Contact from "@/pages/Contact";
-import PasswordGate, { useAuth, setAuth } from "@/components/PasswordGate";
 
 function Router() {
   return (
@@ -24,19 +22,6 @@ function Router() {
 }
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(() => useAuth());
-
-  if (!authenticated) {
-    return (
-      <PasswordGate
-        onSuccess={() => {
-          setAuth();
-          setAuthenticated(true);
-        }}
-      />
-    );
-  }
-
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
