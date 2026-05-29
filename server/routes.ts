@@ -3,11 +3,30 @@ import type { Server } from "http";
 import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
+import crypto from "crypto";
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+  // Auth
+  app.post("/api/auth/login", (req, res) => {
+    const { password } = req.body;
+    const sitePassword = process.env.SITE_PASSWORD;
+    if (!sitePassword) {
+      return res.status(500).json({ message: "Server misconfiguration" });
+    }
+    const valid = crypto.timingSafeEqual(
+      Buffer.from(password || ""),
+      Buffer.from(sitePassword)
+    );
+    if (valid) {
+      res.json({ success: true });
+    } else {
+      res.status(401).json({ message: "Incorrect password" });
+    }
+  });
+
   // Projects
   app.get(api.projects.list.path, async (req, res) => {
     const projects = await storage.getProjects();
